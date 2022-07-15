@@ -10,6 +10,8 @@ _$_MyClass _$$_MyClassFromJson(Map<String, dynamic> json) => _$_MyClass(
       name: json['name'] as String,
       age: json['age'] as int,
       data: MyClassData.fromJson(json['data'] as Map<String, dynamic>),
+      children:
+          (json['children'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$$_MyClassToJson(_$_MyClass instance) =>
@@ -17,6 +19,7 @@ Map<String, dynamic> _$$_MyClassToJson(_$_MyClass instance) =>
       'name': instance.name,
       'age': instance.age,
       'data': instance.data,
+      'children': instance.children,
     };
 
 _$_MyClassData _$$_MyClassDataFromJson(Map<String, dynamic> json) =>

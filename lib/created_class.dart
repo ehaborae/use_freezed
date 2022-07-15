@@ -10,6 +10,7 @@ class MyClass with _$MyClass {
     required String name,
     required int age,
     required MyClassData data,
+    required List<String> children,
   }) = _MyClass;
 
   factory MyClass.fromJson(Map<String, dynamic> json) =>

@@ -23,6 +23,7 @@ mixin _$MyClass {
   String get name => throw _privateConstructorUsedError;
   int get age => throw _privateConstructorUsedError;
   MyClassData get data => throw _privateConstructorUsedError;
+  List<String> get children => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +34,7 @@ mixin _$MyClass {
 abstract class $MyClassCopyWith<$Res> {
   factory $MyClassCopyWith(MyClass value, $Res Function(MyClass) then) =
       _$MyClassCopyWithImpl<$Res>;
-  $Res call({String name, int age, MyClassData data});
+  $Res call({String name, int age, MyClassData data, List<String> children});
 
   $MyClassDataCopyWith<$Res> get data;
 }
@@ -51,6 +52,7 @@ class _$MyClassCopyWithImpl<$Res> implements $MyClassCopyWith<$Res> {
     Object? name = freezed,
     Object? age = freezed,
     Object? data = freezed,
+    Object? children = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -65,6 +67,10 @@ class _$MyClassCopyWithImpl<$Res> implements $MyClassCopyWith<$Res> {
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as MyClassData,
+      children: children == freezed
+          ? _value.children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 
@@ -82,7 +88,7 @@ abstract class _$$_MyClassCopyWith<$Res> implements $MyClassCopyWith<$Res> {
           _$_MyClass value, $Res Function(_$_MyClass) then) =
       __$$_MyClassCopyWithImpl<$Res>;
   @override
-  $Res call({String name, int age, MyClassData data});
+  $Res call({String name, int age, MyClassData data, List<String> children});
 
   @override
   $MyClassDataCopyWith<$Res> get data;
@@ -102,6 +108,7 @@ class __$$_MyClassCopyWithImpl<$Res> extends _$MyClassCopyWithImpl<$Res>
     Object? name = freezed,
     Object? age = freezed,
     Object? data = freezed,
+    Object? children = freezed,
   }) {
     return _then(_$_MyClass(
       name: name == freezed
@@ -116,6 +123,10 @@ class __$$_MyClassCopyWithImpl<$Res> extends _$MyClassCopyWithImpl<$Res>
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as MyClassData,
+      children: children == freezed
+          ? _value._children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -123,7 +134,12 @@ class __$$_MyClassCopyWithImpl<$Res> extends _$MyClassCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MyClass implements _MyClass {
-  const _$_MyClass({required this.name, required this.age, required this.data});
+  const _$_MyClass(
+      {required this.name,
+      required this.age,
+      required this.data,
+      required final List<String> children})
+      : _children = children;
 
   factory _$_MyClass.fromJson(Map<String, dynamic> json) =>
       _$$_MyClassFromJson(json);
@@ -134,10 +150,16 @@ class _$_MyClass implements _MyClass {
   final int age;
   @override
   final MyClassData data;
+  final List<String> _children;
+  @override
+  List<String> get children {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_children);
+  }
 
   @override
   String toString() {
-    return 'MyClass(name: $name, age: $age, data: $data)';
+    return 'MyClass(name: $name, age: $age, data: $data, children: $children)';
   }
 
   @override
@@ -147,7 +169,8 @@ class _$_MyClass implements _MyClass {
             other is _$_MyClass &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.age, age) &&
-            const DeepCollectionEquality().equals(other.data, data));
+            const DeepCollectionEquality().equals(other.data, data) &&
+            const DeepCollectionEquality().equals(other._children, _children));
   }
 
   @JsonKey(ignore: true)
@@ -156,7 +179,8 @@ class _$_MyClass implements _MyClass {
       runtimeType,
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(age),
-      const DeepCollectionEquality().hash(data));
+      const DeepCollectionEquality().hash(data),
+      const DeepCollectionEquality().hash(_children));
 
   @JsonKey(ignore: true)
   @override
@@ -175,7 +199,8 @@ abstract class _MyClass implements MyClass {
   const factory _MyClass(
       {required final String name,
       required final int age,
-      required final MyClassData data}) = _$_MyClass;
+      required final MyClassData data,
+      required final List<String> children}) = _$_MyClass;
 
   factory _MyClass.fromJson(Map<String, dynamic> json) = _$_MyClass.fromJson;
 
@@ -185,6 +210,8 @@ abstract class _MyClass implements MyClass {
   int get age;
   @override
   MyClassData get data;
+  @override
+  List<String> get children;
   @override
   @JsonKey(ignore: true)
   _$$_MyClassCopyWith<_$_MyClass> get copyWith =>

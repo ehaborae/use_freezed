@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   MyClass myClass = const MyClass(
     name: 'John',
     age: 30,
+    children: ['John', 'Jane', 'Jack'],
     data: MyClassData(
       color: '',
       gender: '',
